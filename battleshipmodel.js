@@ -14,6 +14,9 @@ $(document).ready(function(){
     $(this).addClass("torpedo");
   })
   //END OF ON CLICK TO CHANGE COLOR//
-  // $("#torpedoCount").on("click",)
+  var count = 1;
+  $(this).on("click", function() {
+    $("#torpedoCount").text("Torpedo Count: " + count++);
+  })
 
 })
