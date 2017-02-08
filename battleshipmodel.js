@@ -32,14 +32,12 @@ function placeShips() {
     };
   //^^end of ship placement for loop
   var d = board[0].concat(board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
-  console.log(d);
 
   sum = d.reduce(add,0);
 
   function add(a,b){
     return a+b;
   };
-  console.log(sum)
 
   };
 
