@@ -1,4 +1,4 @@
-var count = 1;
+var count = 25;
 var shipsSunk = 1;
 var board =[
   [0,0,0,0,0,0,0,0,0,0],

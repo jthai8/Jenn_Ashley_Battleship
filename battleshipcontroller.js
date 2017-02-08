@@ -12,6 +12,7 @@ $(document).ready(function(){
     // END OF FOR LOOP //
     //on click change color of td
   $("td").on("click", function(){
+    $("#torpedoCount").text("Torpedo Count: " + (count= count-1));
     //vv this gets the td id by pulling the string index (ie td id 30 [0]=3 & [1]=0)
     var bRow = $(this).attr('id')[0]
     var bCol = $(this).attr('id')[1]
@@ -21,19 +22,19 @@ $(document).ready(function(){
       $(this).addClass("ship");
       $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
     }
-      if (shipsSunk == 6){
-        $("#winOrLose").text("YOU WIN!!!");
-      } else if (count == 25) {
-        $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
-        //vv shipLoc is an array that holds ship locations, loop runs through each index and id and adds class once game is over
-        shipLoc.forEach(function(index) {
-          $("#" + index).addClass("ship");
-        });
+    if (shipsSunk == 6){
+      $("#winOrLose").text("YOU WIN!!!");
+    } else if (count == 0) {
+      $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
+      $("#torpedoCount").text("Torpedo Count: " + (count = 0));
+      //vv shipLoc is an array that holds ship locations, loop runs through each index and id and adds class once game is over
+      shipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
         // $(shipLoc).addClass("ship");
-        $("td").off("click");
+      $("td").off("click");
         //need to use addClass on torpedo counter to reveal ships when game is lost
-      }
-    $("#torpedoCount").text("Torpedo Count: " + count++);
+    }
     //turns off click once td has been clicked
     $(this).off("click");
   })
