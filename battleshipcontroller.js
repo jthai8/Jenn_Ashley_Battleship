@@ -17,12 +17,24 @@ $(document).ready(function(){
       $(this).addClass("torpedo");
     } else {
       $(this).addClass("ship");
+      $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
+    }
+      if (shipsSunk == 6){
+        $("#winOrLose").text("YOU WIN!!!");
+
     }
     $("#torpedoCount").text("Torpedo Count: " + count++);
     //turns off click
     $(this).off("click");
   })
   //END OF ON CLICK TO CHANGE COLOR//
+
+
+
+
+
+
+
 
 
 })

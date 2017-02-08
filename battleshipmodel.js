@@ -1,4 +1,5 @@
 var count = 1;
+var shipsSunk = 1;
 var board =[
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -12,6 +13,8 @@ var board =[
   [0,0,0,0,0,0,0,0,0,0]
 ];
 var ship = 1;
+var sum;
+
 
 function placeShips() {
   // loop through board; if a ship exists at board[row][column], keep going
@@ -27,6 +30,15 @@ function placeShips() {
       board[bRow][bCol]= ship;
     };
   //^^end of ship placement for loop
+  var d = board[0].concat(board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
+  console.log(d);
+
+  sum = d.reduce(add,0);
+
+  function add(a,b){
+    return a+b;
+  };
+  console.log(sum)
 
   };
 
