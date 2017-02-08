@@ -21,8 +21,10 @@ $(document).ready(function(){
     }
       if (shipsSunk == 6){
         $("#winOrLose").text("YOU WIN!!!");
-
-    }
+      } else if (count == 25) {
+        $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
+        $("td").off("click");
+      }
     $("#torpedoCount").text("Torpedo Count: " + count++);
     //turns off click
     $(this).off("click");
