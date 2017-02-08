@@ -25,6 +25,7 @@ $(document).ready(function(){
         $("#winOrLose").text("YOU WIN!!!");
       } else if (count == 25) {
         $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
+        //vv shipLoc is an array that holds ship locations, loop runs through each index and id and adds class once game is over
         shipLoc.forEach(function(index) {
           $("#" + index).addClass("ship");
         });
