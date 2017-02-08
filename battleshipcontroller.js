@@ -5,13 +5,19 @@ $(document).ready(function(){
     $("table").append("<tr id='tr-" + row + "'></tr>");
       for(var col=0; col<10; col++){
         //call just the id row and add 10 table dates to just that row
-        $("tr#tr-"+ row).append("<td></td>");
+        $("tr#tr-"+ row).append("<td id='" + row + col + "'></td>");
       }
     };
     // END OF FOR LOOP //
     //on click change color of td
   $("td").on("click", function(){
-    $(this).addClass("torpedo");
+    var bRow = $(this).attr('id')[0]
+    var bCol = $(this).attr('id')[1]
+    if (board[bRow][bCol]==0){
+      $(this).addClass("torpedo");
+    } else {
+      $(this).addClass("ship");
+    }
     $("#torpedoCount").text("Torpedo Count: " + count++);
     //turns off click
     $(this).off("click");

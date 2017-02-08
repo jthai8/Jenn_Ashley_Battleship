@@ -12,6 +12,11 @@ td.torpedo {
   background-color: rgb(63, 147, 217);
 }
 
+td.ship {
+  background-color: rgba(227, 43, 32, 0.9);
+}
+
+
 /*table {
   padding-left: 70px;
 }*/

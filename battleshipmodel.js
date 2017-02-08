@@ -19,12 +19,12 @@ function placeShips() {
   //vv start of ship placement for loop
   for(var i=0; i < 5; i++) {
     // generates random row
-    var boardRow = Math.floor(Math.random()*9);
+    var bRow = Math.floor(Math.random()*9);
     // generates random column
-    var boardCol = Math.floor(Math.random()*9);
+    var bCol = Math.floor(Math.random()*9);
     //assign spot with ship value = 1
-    if(board[boardRow][boardCol] == 0 ){
-      board[boardRow][boardCol]= ship;
+    if(board[bRow][bCol] == 0 ){
+      board[bRow][bCol]= ship;
     };
   //^^end of ship placement for loop
 
