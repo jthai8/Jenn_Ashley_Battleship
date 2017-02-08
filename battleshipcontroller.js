@@ -8,9 +8,11 @@ $(document).ready(function(){
         $("tr#tr-"+ row).append("<td id='" + row + col + "'></td>");
       }
     };
+    placeShips();
     // END OF FOR LOOP //
     //on click change color of td
   $("td").on("click", function(){
+    //vv this gets the td id by pulling the string index (ie td id 30 [0]=3 & [1]=0)
     var bRow = $(this).attr('id')[0]
     var bCol = $(this).attr('id')[1]
     if (board[bRow][bCol]==0){
@@ -23,10 +25,15 @@ $(document).ready(function(){
         $("#winOrLose").text("YOU WIN!!!");
       } else if (count == 25) {
         $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
+        shipLoc.forEach(function(index) {
+          $("#" + index).addClass("ship");
+        });
+        // $(shipLoc).addClass("ship");
         $("td").off("click");
+        //need to use addClass on torpedo counter to reveal ships when game is lost
       }
     $("#torpedoCount").text("Torpedo Count: " + count++);
-    //turns off click
+    //turns off click once td has been clicked
     $(this).off("click");
   })
   //END OF ON CLICK TO CHANGE COLOR//

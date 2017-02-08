@@ -14,7 +14,7 @@ var board =[
 ];
 var ship = 1;
 var sum;
-
+var shipLoc =[];
 
 function placeShips() {
   // loop through board; if a ship exists at board[row][column], keep going
@@ -28,6 +28,7 @@ function placeShips() {
     //assign spot with ship value = 1
     if(board[bRow][bCol] == 0 ){
       board[bRow][bCol]= ship;
+      shipLoc.push(bRow.toString() + bCol.toString());
     };
   //^^end of ship placement for loop
   var d = board[0].concat(board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
