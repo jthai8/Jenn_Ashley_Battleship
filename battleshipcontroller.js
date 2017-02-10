@@ -20,6 +20,7 @@ $(document).ready(function(){
       $(this).addClass("torpedo");
     } else {
       $(this).addClass("ship");
+      //want to add a border around ships once theyve been identified
       $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
     }
     if (shipsSunk == 25){
@@ -59,13 +60,5 @@ $(document).ready(function(){
     $(this).off("click");
   })
   //END OF ON CLICK TO CHANGE COLOR//
-
-
-
-
-
-
-
-
 
 })
