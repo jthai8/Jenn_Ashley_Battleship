@@ -32,6 +32,18 @@ $(document).ready(function(){
         $("#" + index).addClass("ship");
       });
         // $(shipLoc).addClass("ship");
+      fiveShipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      fourShipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      fourShipLocTwo.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      threeShipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
       $("td").off("click");
         //need to use addClass on torpedo counter to reveal ships when game is lost
     }
