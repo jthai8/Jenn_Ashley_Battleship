@@ -202,19 +202,19 @@ function placeShips() {
   // loop through board; if a ship exists at board[row][column], keep going
   //create a for loop that places a ship at a random position, if spot taken, keep going
 
-  //vv start of ship placement for loop
-  while(shipLoc.length<1) {
-    // generates random row
-    var bRow = Math.floor(Math.random()*9);
-    // generates random column
-    var bCol = Math.floor(Math.random()*9);
-    //assign spot with ship value = 1
-    if(spaces(bRow, bCol)) {
-      board[bRow][bCol]= ship;
-      //VV pushes our ship placement into new array shipLoc
-      shipLoc.push(bRow.toString() + bCol.toString());
-    }
+  //vv start of single ship placement for loop
+  // while(shipLoc.length<1) -- orginally had while loop to get 5 single ship placements {
+  // generates random row
+  var bRow = Math.floor(Math.random()*9);
+  // generates random column
+  var bCol = Math.floor(Math.random()*9);
+  //assign spot with ship value = 1
+  if(spaces(bRow, bCol)) {
+    board[bRow][bCol]= ship;
+    //VV pushes our ship placement into new array shipLoc
+    shipLoc.push(bRow.toString() + bCol.toString());
   }
+  // }
   //^^end of single ship placement for loop
   //vv once the single ships have been placed, call the fiveShip function
   fiveShip();

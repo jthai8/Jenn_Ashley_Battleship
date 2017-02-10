@@ -22,7 +22,7 @@ $(document).ready(function(){
       $(this).addClass("ship");
       $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
     }
-    if (shipsSunk == 10){
+    if (shipsSunk == 25){
       $("#winOrLose").text("YOU WIN!!!");
     } else if (count == 0) {
       $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
