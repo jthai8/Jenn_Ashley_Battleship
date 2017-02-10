@@ -49,7 +49,29 @@ function spaces(bRow, bCol) {
     )
 };
 
+function fiveShip(){
+  // var nBoard = bRow.toString() + bCol.toString();
+  var nShipLoc = [];
+  while (nShipLoc.length<5){
+    var bRow = Math.floor(Math.random()*9);
+    //console log nRow and nCol to see what is generated
+    var bCol = Math.floor(Math.random()*9);
+    if(bRow + 4 < 10 && spaces(bRow, bCol) && spaces(bRow + 1, bCol) && spaces(bRow + 2, bCol) && spaces(bRow + 3, bCol) && spaces(bRow + 4, bCol)) {
+      //we want to have our function create a 5 block ship, the shipLoc array will have an array within an array
+      board[bRow][bCol]= ship;
+      board[bRow + 1][bCol] = ship;
+      board[bRow + 2][bCol] = ship;
+      board[bRow + 3][bCol] = ship;
+      board[bRow + 4][bCol] = ship;
 
+      //VV pushes our ship placement into new array shipLoc
+      nShipLoc.push((bRow.toString() + bCol.toString()), ((bRow + 1).toString() + bCol.toString()), ((bRow + 2).toString() + bCol.toString()), ((bRow + 3).toString() + bCol.toString()), ((bRow + 4).toString() + bCol.toString()) );
+    }
+  }
+  console.log(nShipLoc);
+}
+
+//vv this places single ships
 function placeShips() {
   // loop through board; if a ship exists at board[row][column], keep going
   //create a for loop that places a ship at a random position, if spot taken, keep going
@@ -62,11 +84,13 @@ function placeShips() {
     var bCol = Math.floor(Math.random()*9);
     //assign spot with ship value = 1
     if(spaces(bRow, bCol)) {
+      //we want to have our function create a 5 block ship, the shipLoc array will have an array within an array
       board[bRow][bCol]= ship;
+      //VV pushes our ship placement into new array shipLoc
       shipLoc.push(bRow.toString() + bCol.toString());
     }
   }
-  //^^end of ship placement for loop
+  //^^end of single ship placement for loop
 
 };
 
@@ -75,6 +99,8 @@ function placeShips() {
   // do this until five ships are placed
 
 
+
+// below is code that is not functional for this game but it works alone
 // var d = board[0].concat(board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
 //
 // sum = d.reduce(add,0);
