@@ -65,7 +65,7 @@ function spaces(bRow, bCol) {
     )
 };
 
-//creates a ship 5 blocks long
+//creates a ship 5 blocks long vertically
 function fiveShip(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
@@ -86,7 +86,7 @@ function fiveShip(){
   }
 }
 
-//creates a ship 4 blocks long
+//creates a ship 4 blocks long vertically
 function fourShip(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
@@ -105,7 +105,7 @@ function fourShip(){
     fourShip();
   }
 }
-//vv this creates the second four block ship
+//vv this creates the second four block ship horizontally
 function fourShipTwo(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
@@ -120,18 +120,18 @@ function fourShipTwo(){
     //VV pushes our ship placement into new array shipLoc
     fourShipLocTwo.push((bRow.toString() + bCol.toString()), (bRow.toString() + (bCol + 1).toString()), (bRow.toString() + (bCol + 2).toString()), (bRow.toString() + (bCol + 3).toString()) );
   } else {
-    //if the condition above is false, run the fourShip function again
+    //if the condition above is false, run the fourShipTwo function again
     fourShipTwo();
   }
 }
 
-//vv this creates the first three block ship
+//vv this creates the first three block ship vertically
 function threeShip(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
   var bCol = Math.floor(Math.random()*9);
   if(threeShipLoc.length < 3 && (bRow + 2) < 10 && (bCol + 2) < 10 && spaces(bRow, bCol) && spaces(bRow, bCol + 1) && spaces(bRow, bCol + 2)) {
-    //we want to have our function create a 3 block ship, the shipLoc array will have an array within an array
+    //we want to have our function create a three block ship, the shipLoc array will have an array within an array
     board[bRow][bCol]= ship;
     board[bRow][bCol + 1] = ship;
     board[bRow][bCol + 2] = ship
@@ -143,13 +143,13 @@ function threeShip(){
   }
 }
 
-//creates the second 3 block ship
+//creates the second 3 block ship vertically
 function threeShipTwo(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
   var bCol = Math.floor(Math.random()*9);
   if(threeShipLocTwo.length < 4 && (bRow + 2) < 10 && (bCol + 2) < 10 && spaces(bRow, bCol) && spaces(bRow + 1, bCol) && spaces(bRow + 2, bCol)) {
-    //we want to have our function create a 4 block ship, the shipLoc array will have an array within an array
+    //we want to have our function create a three block ship, the shipLoc array will have an array within an array
     board[bRow][bCol]= ship;
     board[bRow + 1][bCol] = ship;
     board[bRow + 2][bCol] = ship;
@@ -157,42 +157,42 @@ function threeShipTwo(){
     //VV pushes our ship placement into new array shipLoc
     threeShipLocTwo.push((bRow.toString() + bCol.toString()), ((bRow + 1).toString() + bCol.toString()), ((bRow + 2).toString() + bCol.toString()) );
   } else {
-    //if the condition above is false, run the fourShip function again
+    //if the condition above is false, run the threeShipTwo function again
     threeShipTwo();
   }
 }
 
-//vv this creates the first two block ship
+//vv this creates the first two block ship horizontally
 function twoShip(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
   var bCol = Math.floor(Math.random()*9);
   if(twoShipLoc.length < 2 && (bRow + 1) < 10 && (bCol + 1) < 10 && spaces(bRow, bCol) && spaces(bRow, bCol + 1)) {
-    //we want to have our function create a 3 block ship, the shipLoc array will have an array within an array
+    //we want to have our function create a two block ship, the shipLoc array will have an array within an array
     board[bRow][bCol]= ship;
     board[bRow][bCol + 1] = ship;
     //VV pushes our ship placement into new array shipLoc
     twoShipLoc.push((bRow.toString() + bCol.toString()), (bRow.toString() + (bCol + 1).toString())       );
   } else {
-    //if the condition above is false, run the threeShip function again
+    //if the condition above is false, run the twoShip function again
     twoShip();
   }
 }
 
-//creates the second 3 block ship
+//creates the second two block ship vertically
 function twoShipTwo(){
   var bRow = Math.floor(Math.random()*9);
   //console log nRow and nCol to see what is generated
   var bCol = Math.floor(Math.random()*9);
   if(twoShipLocTwo.length < 4 && (bRow + 1) < 10 && (bCol + 1) < 10 && spaces(bRow, bCol) && spaces(bRow + 1, bCol)) {
-    //we want to have our function create a 4 block ship, the shipLoc array will have an array within an array
+    //we want to have our function create a two block ship, the shipLoc array will have an array within an array
     board[bRow][bCol]= ship;
     board[bRow + 1][bCol] = ship;
 
     //VV pushes our ship placement into new array shipLoc
     twoShipLocTwo.push((bRow.toString() + bCol.toString()), ((bRow + 1).toString() + bCol.toString()) );
   } else {
-    //if the condition above is false, run the fourShip function again
+    //if the condition above is false, run the twoShipTwo function again
     twoShipTwo();
   }
 }
@@ -205,9 +205,9 @@ function placeShips() {
   //vv start of single ship placement for loop
   // while(shipLoc.length<1) -- orginally had while loop to get 5 single ship placements {
   // generates random row
-  var bRow = Math.floor(Math.random()*9);
+  var bRow = Math.floor(Math.random()*10);
   // generates random column
-  var bCol = Math.floor(Math.random()*9);
+  var bCol = Math.floor(Math.random()*10);
   //assign spot with ship value = 1
   if(spaces(bRow, bCol)) {
     board[bRow][bCol]= ship;
@@ -216,14 +216,40 @@ function placeShips() {
   }
   // }
   //^^end of single ship placement for loop
+  //vv randomly places the four ship horizontally or vertically
+  var fourDirection = Math.floor(Math.random()*2)
+  //^^ this creates a random number 0 or 1
+  if(fourDirection == 1) {
+    fourShip();
+  } else {
+    fourShipTwo();
+  }
+  //vv randomly places the three ship horizontally or vertically
+  var threeDirection = Math.floor(Math.random()*2)
+  //^^ this creates a random number 0 or 1
+  if(threeDirection == 1) {
+    threeShip();
+  } else {
+    threeShipTwo();
+  }
+  //vv randomly places the three ship horizontally or vertically
+  var twoDirection = Math.floor(Math.random()*2)
+  //^^ this creates a random number 0 or 1
+  if(twoDirection == 1) {
+    twoShip();
+  } else {
+    twoShipTwo();
+  }
+
+
   //vv once the single ships have been placed, call the fiveShip function
   fiveShip();
-  fourShip();
-  fourShipTwo();
-  threeShip();
-  threeShipTwo();
-  twoShip();
-  twoShipTwo();
+  // fourShip();
+  // fourShipTwo();
+  // threeShip();
+  // threeShipTwo();
+  // twoShip();
+  // twoShipTwo();
   //vv push the 5 block ship into the shipLoc array
   shipLoc.push(fiveShipLoc);
   //vv push the first 4 block ship into the shipLoc array
