@@ -14,7 +14,10 @@ var board =[
 ];
 var ship = 1;
 var sum;
+//vv array to hold the ship placement
 var shipLoc =[];
+//vv array for the five block ship
+var nShipLoc = [];
 function spaces(bRow, bCol) {
   // newRow prevents us from going into -1 row
   var newRow = bRow-1;
@@ -49,26 +52,26 @@ function spaces(bRow, bCol) {
     )
 };
 
+//creates a ship 5 blocks long
 function fiveShip(){
-  // var nBoard = bRow.toString() + bCol.toString();
-  var nShipLoc = [];
-  while (nShipLoc.length<5){
-    var bRow = Math.floor(Math.random()*9);
-    //console log nRow and nCol to see what is generated
-    var bCol = Math.floor(Math.random()*9);
-    if(bRow + 4 < 10 && spaces(bRow, bCol) && spaces(bRow + 1, bCol) && spaces(bRow + 2, bCol) && spaces(bRow + 3, bCol) && spaces(bRow + 4, bCol)) {
-      //we want to have our function create a 5 block ship, the shipLoc array will have an array within an array
-      board[bRow][bCol]= ship;
-      board[bRow + 1][bCol] = ship;
-      board[bRow + 2][bCol] = ship;
-      board[bRow + 3][bCol] = ship;
-      board[bRow + 4][bCol] = ship;
+  var bRow = Math.floor(Math.random()*9);
+  //console log nRow and nCol to see what is generated
+  var bCol = Math.floor(Math.random()*9);
+  if(nShipLoc.length < 5 && (bRow + 4) < 10 && (bCol + 4) < 10 && spaces(bRow, bCol) && spaces(bRow + 1, bCol) && spaces(bRow + 2, bCol) && spaces(bRow + 3, bCol) && spaces(bRow + 4, bCol)) {
+    //we want to have our function create a 5 block ship, the shipLoc array will have an array within an array
+    board[bRow][bCol]= ship;
+    board[bRow + 1][bCol] = ship;
+    board[bRow + 2][bCol] = ship;
+    board[bRow + 3][bCol] = ship;
+    board[bRow + 4][bCol] = ship;
 
-      //VV pushes our ship placement into new array shipLoc
-      nShipLoc.push((bRow.toString() + bCol.toString()), ((bRow + 1).toString() + bCol.toString()), ((bRow + 2).toString() + bCol.toString()), ((bRow + 3).toString() + bCol.toString()), ((bRow + 4).toString() + bCol.toString()) );
-    }
+    //VV pushes our ship placement into new array shipLoc
+    nShipLoc.push((bRow.toString() + bCol.toString()), ((bRow + 1).toString() + bCol.toString()), ((bRow + 2).toString() + bCol.toString()), ((bRow + 3).toString() + bCol.toString()), ((bRow + 4).toString() + bCol.toString()) );
+    console.log(nShipLoc);
+  } else {
+    //if the condition above is false, run the fiveShip function again
+    fiveShip();
   }
-  console.log(nShipLoc);
 }
 
 //vv this places single ships
@@ -77,20 +80,24 @@ function placeShips() {
   //create a for loop that places a ship at a random position, if spot taken, keep going
 
   //vv start of ship placement for loop
-  while(shipLoc.length<5) {
+  while(shipLoc.length<4) {
     // generates random row
     var bRow = Math.floor(Math.random()*9);
     // generates random column
     var bCol = Math.floor(Math.random()*9);
     //assign spot with ship value = 1
     if(spaces(bRow, bCol)) {
-      //we want to have our function create a 5 block ship, the shipLoc array will have an array within an array
       board[bRow][bCol]= ship;
       //VV pushes our ship placement into new array shipLoc
       shipLoc.push(bRow.toString() + bCol.toString());
     }
   }
   //^^end of single ship placement for loop
+  //vv once the single ships have been placed, call the fiveShip function
+  fiveShip();
+  //vv push the fiveShip function into the shipLoc array
+  shipLoc.push(nShipLoc);
+  console.log(shipLoc);
 
 };
 
