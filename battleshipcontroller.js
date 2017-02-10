@@ -27,11 +27,10 @@ $(document).ready(function(){
     } else if (count == 0) {
       $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
       $("#torpedoCount").text("Torpedo Count: " + (count = 0));
-      //vv shipLoc is an array that holds ship locations, loop runs through each index and id and adds class once game is over
+      //vv shipLoc is an array that holds ship locations, loop runs through the ship location array and adds ship class once game is over
       shipLoc.forEach(function(index) {
         $("#" + index).addClass("ship");
       });
-        // $(shipLoc).addClass("ship");
       fiveShipLoc.forEach(function(index) {
         $("#" + index).addClass("ship");
       });
@@ -42,6 +41,15 @@ $(document).ready(function(){
         $("#" + index).addClass("ship");
       });
       threeShipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      threeShipLocTwo.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      twoShipLoc.forEach(function(index) {
+        $("#" + index).addClass("ship");
+      });
+      twoShipLocTwo.forEach(function(index) {
         $("#" + index).addClass("ship");
       });
       $("td").off("click");
