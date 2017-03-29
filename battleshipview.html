@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Battleship Game</title>
+
     <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC:700" rel="stylesheet">
+
+
     <script type="text/javascript" src="battleshipcontroller.js"></script>
     <script type="text/javascript" src="battleshipmodel.js"></script>
     <link rel="stylesheet" href="battleship.css"/>
+
+    <meta charset="utf-8">
+    <title>Battleship Game</title>
   </head>
 
+  <h1 id='title'>Battleship</h1>
   <body>
-    <h1>Battleship</h1>
+    <div class="game">
+      <p id="torpedoCount">Torpedo Count: 25</p>
+      <p id="shipSunk">Ships Sunk:</p>
+      <button type="button"> New Game</button>
+      <div class="container">
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <table>
+            </table>
+          </div>
+          <p id="winOrLose"> </p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-    <table>
-
-    </table>
-
-    <h2 id="torpedoCount">Torpedo Count: 25</h2>
-    <h2 id="shipSunk">Ships Sunk:</h2>
-    <h2 id="winOrLose"> </h2>
-
-    <button type="button"> New Game</button>
-
+      </div>
+    </div>
   </body>
 
 </html>

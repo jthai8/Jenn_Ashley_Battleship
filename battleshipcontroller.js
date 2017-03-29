@@ -24,9 +24,9 @@ $(document).ready(function(){
       $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
     }
     if (shipsSunk == 25){
-      $("#winOrLose").text("YOU WIN!!!");
+      $("#winOrLose").text("You sunk my battleships! You win!!! :)");
     } else if (count == 0) {
-      $("#winOrLose").text("YOU LOSE, NO MORE TORPEDOES :(");
+      $("#winOrLose").text("You Lose! No More Torpedoes :( ");
       $("#torpedoCount").text("Torpedo Count: " + (count = 0));
       //vv shipLoc is an array that holds ship locations, loop runs through the ship location array and adds ship class once game is over
       shipLoc.forEach(function(index) {
@@ -60,5 +60,9 @@ $(document).ready(function(){
     $(this).off("click");
   })
   //END OF ON CLICK TO CHANGE COLOR//
+  $("button").on("click", function reloadPage(){
+    window.location.reload();
+    // reloads the page to start a new game
+  })
 
 })
