@@ -21,7 +21,7 @@ $(document).ready(function(){
     } else {
       $(this).addClass("ship");
       //want to add a border around ships once theyve been identified
-      $("#shipSunk").text("Ships Sunk: " + shipsSunk++);
+      $("#shipSunk").text("Hits Count: " + shipsSunk++);
     }
     if (shipsSunk == 25){
       $("#winOrLose").text("You sunk my battleships! You win!!! :)");
